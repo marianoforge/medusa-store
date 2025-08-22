@@ -12,9 +12,9 @@ services:
       - key: PORT
         value: 10000
       - key: DATABASE_URL
-        value: postgres://postgres:postgres@localhost:5432/medusa-store
+        value: postgresql://neondb_owner:npg_ax28ZfsovVqm@ep-blue-resonance-abxztqnk-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
       - key: REDIS_URL
-        value: redis://localhost:6379
+        value: redis://default:AZloAAIncDE3YjgxYThjNGFkODE0MjNiYTU2YWI4OGZmYzY5NTgwOXAxMzkyNzI@endless-weevil-39272.upstash.io:6379
       - key: JWT_SECRET
         value: your-super-secret-jwt-key-change-this
       - key: COOKIE_SECRET
@@ -51,7 +51,6 @@ services:
       - key: NEXT_PUBLIC_ADMIN_CORS
         value: https://medusa-frontend.onrender.com
 
-  # Nota: Los servicios de PostgreSQL y Redis deben configurarse manualmente en Render
-  # - PostgreSQL: Crear como servicio tipo "PostgreSQL" 
-  # - Redis: Crear como servicio tipo "Redis" o usar servicio externo como Upstash
+  # Nota: Crear PostgreSQL y Redis manualmente en Render Dashboard
+  # Luego reemplazar las URLs arriba con las URLs reales
     
