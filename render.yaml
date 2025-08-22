@@ -4,7 +4,7 @@ services:
     runtime: node
     rootDir: my-medusa-store
     plan: free
-    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
+    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build && npx @medusajs/cli db:migrate && yarn seed
     startCommand: yarn start
     envVars:
       - key: NODE_ENV
