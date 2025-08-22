@@ -4,10 +4,7 @@ services:
     runtime: node
     rootDir: my-medusa-store
     plan: free
-    buildCommand: |
-      yarn corepack enable && corepack prepare yarn@3.2.3 --activate
-      yarn install --frozen-lockfile
-      yarn build
+    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
     startCommand: yarn start
     envVars:
       - key: NODE_ENV
@@ -38,11 +35,8 @@ services:
     runtime: node
     rootDir: my-medusa-storefront
     plan: free
-    buildCommand: |
-      yarn corepack enable && corepack prepare yarn@3.2.3 --activate
-      yarn install --frozen-lockfile
-      next build
-    startCommand: next start -p $PORT
+    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
+    startCommand: yarn start
     envVars:
       - key: NODE_ENV
         value: production
