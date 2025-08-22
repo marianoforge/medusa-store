@@ -4,7 +4,7 @@ services:
     runtime: node
     rootDir: my-medusa-store
     plan: free
-    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
+    buildCommand: corepack enable && corepack prepare yarn@1.22.19 --activate && yarn install --frozen-lockfile && yarn build
     startCommand: ./scripts/init-production.sh && yarn start
     envVars:
       - key: NODE_ENV
@@ -29,13 +29,17 @@ services:
         value: https://medusa-frontend-w382.onrender.com
       - key: MEDUSA_STORE_CORS
         value: https://medusa-frontend-w382.onrender.com
+      - key: MEDUSA_ADMIN_ONBOARDING_TYPE
+        value: default
+      - key: MEDUSA_ADMIN_ONBOARDING_FLOW
+        value: default
   
   - type: web
     name: medusa-frontend
     runtime: node
     rootDir: my-medusa-storefront
     plan: free
-    buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
+    buildCommand: corepack enable && corepack prepare yarn@1.22.19 --activate && yarn install --frozen-lockfile && yarn build
     startCommand: node .next/standalone/server.js
     envVars:
       - key: NODE_ENV
@@ -56,6 +60,8 @@ services:
         value: pk_01234567890abcdef
       - key: NEXT_PUBLIC_BASE_URL
         value: https://medusa-frontend-w382.onrender.com
+      - key: HOSTNAME
+        value: 0.0.0.0
 
   # Nota: Crear PostgreSQL y Redis manualmente en Render Dashboard
   # Luego reemplazar las URLs arriba con las URLs reales
