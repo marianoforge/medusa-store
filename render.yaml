@@ -20,15 +20,15 @@ services:
       - key: COOKIE_SECRET
         value: your-super-secret-cookie-key-change-this
       - key: STORE_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: ADMIN_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: AUTH_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: MEDUSA_ADMIN_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: MEDUSA_STORE_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
   
   - type: web
     name: medusa-frontend
@@ -43,13 +43,13 @@ services:
       - key: PORT
         value: 8000
       - key: NEXT_PUBLIC_API_URL
-        value: https://medusa-backend.onrender.com
+        value: https://medusa-backend-8c7e.onrender.com
       - key: NEXT_PUBLIC_MEDUSA_BACKEND_URL
-        value: https://medusa-backend.onrender.com
+        value: https://medusa-backend-8c7e.onrender.com
       - key: NEXT_PUBLIC_STORE_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: NEXT_PUBLIC_ADMIN_CORS
-        value: https://medusa-frontend.onrender.com
+        value: https://medusa-frontend-w382.onrender.com
       - key: NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
         value: pk_01234567890abcdef
 
