@@ -36,7 +36,7 @@ services:
     rootDir: my-medusa-storefront
     plan: free
     buildCommand: corepack enable && corepack prepare yarn@3.2.3 --activate && yarn install --frozen-lockfile && yarn build
-    startCommand: yarn start
+    startCommand: node .next/standalone/server.js
     envVars:
       - key: NODE_ENV
         value: production
@@ -54,6 +54,8 @@ services:
         value: https://medusa-frontend-w382.onrender.com
       - key: NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
         value: pk_01234567890abcdef
+      - key: NEXT_PUBLIC_BASE_URL
+        value: https://medusa-frontend-w382.onrender.com
 
   # Nota: Crear PostgreSQL y Redis manualmente en Render Dashboard
   # Luego reemplazar las URLs arriba con las URLs reales
