@@ -17,7 +17,7 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  admin: {
-    disable: true, // Temporarily disable admin to fix deployment
-  },
+  // admin: {
+  //   disable: true, // Re-enabled admin
+  // },
 });
