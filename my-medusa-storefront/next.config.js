@@ -7,6 +7,7 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
   logging: {
     fetches: {
       fullUrl: true,
@@ -17,6 +18,9 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  experimental: {
+    serverComponentsExternalPackages: ['@medusajs/js-sdk']
   },
   images: {
     remotePatterns: [

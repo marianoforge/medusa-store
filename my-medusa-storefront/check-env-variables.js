@@ -10,6 +10,12 @@ const requiredEnvs = [
 ]
 
 function checkEnvVariables() {
+  // Skip env check during build process
+  if (process.env.NODE_ENV === 'production' && process.env.RENDER) {
+    console.log(c.yellow("⚠️  Skipping env check during build on Render"))
+    return
+  }
+
   const missingEnvs = requiredEnvs.filter(function (env) {
     return !process.env[env.key]
   })
