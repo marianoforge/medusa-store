@@ -19,9 +19,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    serverComponentsExternalPackages: ['@medusajs/js-sdk']
-  },
+  serverExternalPackages: ['@medusajs/js-sdk'],
   images: {
     remotePatterns: [
       {
