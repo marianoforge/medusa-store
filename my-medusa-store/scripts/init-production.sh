@@ -22,6 +22,7 @@ NODE_ENV=production npx @medusajs/cli db:migrate || {
 echo "🌱 Ejecutando seed de datos..."
 NODE_ENV=production yarn seed || {
     echo "⚠️ Seed falló, pero continuando..."
+    echo "ℹ️ Esto es normal en el primer despliegue o si los datos ya existen"
 }
 
 echo "✅ Setup de producción completado"

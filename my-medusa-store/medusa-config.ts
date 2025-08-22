@@ -5,9 +5,9 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
+    redisUrl: process.env.REDIS_URL,
     databaseDriverOptions: {
       ssl: { rejectUnauthorized: false },
-      sslmode: "require",
     },
     http: {
       storeCors: process.env.STORE_CORS!,
@@ -17,7 +17,7 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  // admin: {
-  //   disable: true, // Re-enabled admin
-  // },
+  admin: {
+    disable: true, // Temporarily disable admin to fix 502 error
+  },
 });
