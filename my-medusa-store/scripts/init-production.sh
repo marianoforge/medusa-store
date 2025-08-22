@@ -4,9 +4,9 @@ set -e
 echo "🚀 Iniciando setup de producción..."
 
 echo "📦 Ejecutando migraciones..."
-npx @medusajs/cli db:migrate || {
+DATABASE_URL="$DATABASE_URL" NODE_ENV=production npx @medusajs/cli db:migrate || {
     echo "❌ Error en migraciones, intentando db:setup..."
-    npx @medusajs/cli db:setup || {
+    DATABASE_URL="$DATABASE_URL" NODE_ENV=production npx @medusajs/cli db:setup || {
         echo "❌ db:setup falló, continuando sin migraciones..."
     }
 }
