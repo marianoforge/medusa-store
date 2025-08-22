@@ -3,10 +3,14 @@ set -e
 
 echo "🚀 Iniciando setup de producción..."
 
-echo "📦 Saltando migraciones (tablas creadas manualmente)..."
-echo "✅ Base de datos ya configurada"
+echo "📦 Intentando migraciones completas..."
+NODE_ENV=production npx @medusajs/cli db:migrate || {
+    echo "⚠️ Migraciones fallaron, continuando..."
+}
 
-echo "🌱 Saltando seed (datos básicos ya creados)..."
-echo "✅ Datos básicos disponibles"
+echo "🌱 Intentando seed completo..."
+NODE_ENV=production yarn seed || {
+    echo "⚠️ Seed falló, continuando..."
+}
 
-echo "✅ Setup de producción completado"
+echo "✅ Setup de producción completado (con warnings)"
