@@ -1,0 +1,31 @@
+{
+  "name": "@medusa/backend",
+  "version": "1.0.0",
+  "description": "MedusaJS Backend 2.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "medusa build",
+    "dev": "medusa develop",
+    "start": "medusa start",
+    "seed": "medusa seed",
+    "migrate": "medusa migrations run",
+    "migrate:create": "medusa migrations create",
+    "migrate:revert": "medusa migrations revert"
+  },
+  "dependencies": {
+    "@medusajs/medusa": "^2.0.0",
+    "@medusajs/medusa-cli": "^2.0.0",
+    "@medusajs/postgres": "^2.0.0",
+    "@medusajs/redis": "^2.0.0",
+    "@medusajs/medusa-plugin-mailchimp": "^2.0.0",
+    "@medusajs/medusa-plugin-sendgrid": "^2.0.0",
+    "@medusajs/medusa-plugin-stripe": "^2.0.0",
+    "dotenv": "^16.3.1",
+    "medusa-interfaces": "^2.0.0",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

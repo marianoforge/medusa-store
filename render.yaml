@@ -50,6 +50,8 @@ services:
         value: https://medusa-frontend.onrender.com
       - key: NEXT_PUBLIC_ADMIN_CORS
         value: https://medusa-frontend.onrender.com
+      - key: NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
+        value: REPLACE_WITH_PUBLISHABLE_KEY_FROM_BACKEND
 
   # Nota: Crear PostgreSQL y Redis manualmente en Render Dashboard
   # Luego reemplazar las URLs arriba con las URLs reales

@@ -5,7 +5,10 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    databaseDriverOptions: {
+    databaseDriverOptions: process.env.NODE_ENV === 'production' ? {
+      ssl: { rejectUnauthorized: false },
+      sslmode: "require",
+    } : {
       ssl: false,
       sslmode: "disable",
     },
