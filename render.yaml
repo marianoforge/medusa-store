@@ -1,0 +1,63 @@
+services:
+  - type: web
+    name: medusa-backend
+    runtime: node
+    rootDir: my-medusa-store
+    plan: free
+    buildCommand: |
+      yarn corepack enable && corepack prepare yarn@3.2.3 --activate
+      yarn install --frozen-lockfile
+      yarn build
+    startCommand: yarn start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        value: postgres://postgres:postgres@localhost:5432/medusa-store
+      - key: REDIS_URL
+        value: redis://localhost:6379
+      - key: JWT_SECRET
+        value: your-super-secret-jwt-key-change-this
+      - key: COOKIE_SECRET
+        value: your-super-secret-cookie-key-change-this
+      - key: STORE_CORS
+        value: https://medusa-frontend.onrender.com
+      - key: ADMIN_CORS
+        value: https://medusa-frontend.onrender.com
+      - key: AUTH_CORS
+        value: https://medusa-frontend.onrender.com
+      - key: MEDUSA_ADMIN_CORS
+        value: https://medusa-frontend.onrender.com
+      - key: MEDUSA_STORE_CORS
+        value: https://medusa-frontend.onrender.com
+  
+  - type: web
+    name: medusa-frontend
+    runtime: node
+    rootDir: my-medusa-storefront
+    plan: free
+    buildCommand: |
+      yarn corepack enable && corepack prepare yarn@3.2.3 --activate
+      yarn install --frozen-lockfile
+      next build
+    startCommand: next start -p $PORT
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: NEXT_PUBLIC_API_URL
+        value: https://medusa-backend.onrender.com
+      - key: NEXT_PUBLIC_MEDUSA_BACKEND_URL
+        value: https://medusa-backend.onrender.com
+      - key: NEXT_PUBLIC_STORE_CORS
+        value: https://medusa-frontend.onrender.com
+      - key: NEXT_PUBLIC_ADMIN_CORS
+        value: https://medusa-frontend.onrender.com
+
+  # Nota: Los servicios de PostgreSQL y Redis deben configurarse manualmente en Render
+  # - PostgreSQL: Crear como servicio tipo "PostgreSQL" 
+  # - Redis: Crear como servicio tipo "Redis" o usar servicio externo como Upstash
+    
