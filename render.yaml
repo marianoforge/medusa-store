@@ -46,6 +46,8 @@ services:
         value: https://medusa-backend-8c7e.onrender.com
       - key: NEXT_PUBLIC_MEDUSA_BACKEND_URL
         value: https://medusa-backend-8c7e.onrender.com
+      - key: MEDUSA_BACKEND_URL
+        value: https://medusa-backend-8c7e.onrender.com
       - key: NEXT_PUBLIC_STORE_CORS
         value: https://medusa-frontend-w382.onrender.com
       - key: NEXT_PUBLIC_ADMIN_CORS
