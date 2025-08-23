@@ -15,8 +15,12 @@ if [ -z "$REDIS_URL" ]; then
 fi
 
 echo "📦 Ejecutando migraciones de base de datos..."
-NODE_ENV=production npx @medusajs/cli db:migrate || {
-    echo "⚠️ Migraciones fallaron, pero continuando..."
+# Forzar migraciones completas
+NODE_ENV=production npx @medusajs/cli db:migrate --force || {
+    echo "⚠️ Migraciones con --force fallaron, intentando sin force..."
+    NODE_ENV=production npx @medusajs/cli db:migrate || {
+        echo "⚠️ Migraciones fallaron, pero continuando..."
+    }
 }
 
 echo "🌱 Ejecutando seed de datos..."

@@ -16,6 +16,13 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
+    // Configuración adicional para Redis
+    redisOptions: {
+      maxRetriesPerRequest: 3,
+      retryDelayOnFailover: 100,
+      connectTimeout: 10000,
+      lazyConnect: true,
+    },
   },
   admin: {
     disable: true, // Temporarily disable admin to fix 502 error

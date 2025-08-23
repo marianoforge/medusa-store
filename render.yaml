@@ -15,6 +15,8 @@ services:
         value: postgresql://neondb_owner:npg_ax28ZfsovVqm@ep-blue-resonance-abxztqnk-pooler.eu-west-2.aws.neon.tech/neondb?sslmode=require
       - key: REDIS_URL
         value: redis://default:AZloAAIncDE3YjgxYThjNGFkODE0MjNiYTU2YWI4OGZmYzY5NTgwOXAxMzkyNzI@endless-weevil-39272.upstash.io:6379
+      - key: REDIS_TLS_URL
+        value: rediss://default:AZloAAIncDE3YjgxYThjNGFkODE0MjNiYTU2YWI4OGZmYzY5NTgwOXAxMzkyNzI@endless-weevil-39272.upstash.io:6380
       - key: JWT_SECRET
         value: your-super-secret-jwt-key-change-this
       - key: COOKIE_SECRET
