@@ -19,7 +19,6 @@ module.exports = defineConfig({
     // Configuración adicional para Redis
     redisOptions: {
       maxRetriesPerRequest: 3,
-      retryDelayOnFailover: 100,
       connectTimeout: 10000,
       lazyConnect: true,
     },
